@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сергей &amp; Валерия – Приглашение на свадьбу</title>
+
+  <!-- Google Fonts: Cormorant Garamond, Montserrat и тонкий каллиграфический Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       ЭКРАН 1: ГЛАВНЫЙ ЭКРАН (HERO)
+       ================================================================= -->
+  <header class="hero-screen" id="hero">
+    <div class="container hero-container">
+
+      <!-- Тонкая каллиграфия одной линией -->
+      <div class="hero-calligraphy-wrap reveal-on-scroll">
+        <span class="hero-wedding-text">Wedding</span>
+      </div>
+
+      <!-- Пригласительная строка -->
+      <p class="hero-subline reveal-on-scroll">приглашаем вас на свадьбу</p>
+
+      <!-- Имена пары и дата -->
+      <h1 class="hero-names reveal-on-scroll">Валерия &amp; Сергей</h1>
+      <div class="hero-date-badge reveal-on-scroll">
+        <span class="date-line"></span>
+        <span class="date-val">31 ОКТЯБРЯ 2026</span>
+        <span class="date-line"></span>
+      </div>
+
+      <!-- Секундный таймер -->
+      <div class="timer-wrapper reveal-on-scroll" id="countdown">
+        <div class="timer-unit">
+          <span class="timer-digits" id="cd-days">00</span>
+          <span class="timer-tag">дней</span>
+        </div>
+        <div class="timer-del">:</div>
+        <div class="timer-unit">
+          <span class="timer-digits" id="cd-hours">00</span>
+          <span class="timer-tag">часов</span>
+        </div>
+        <div class="timer-del">:</div>
+        <div class="timer-unit">
+          <span class="timer-digits" id="cd-minutes">00</span>
+          <span class="timer-tag">минут</span>
+        </div>
+        <div class="timer-del">:</div>
+        <div class="timer-unit">
+          <span class="timer-digits" id="cd-seconds">00</span>
+          <span class="timer-tag">секунд</span>
+        </div>
+      </div>
+
+      <!-- Главная общая детская фотография: симметричные титры в верхних 20% кадра -->
+      <div class="hero-photo-stage reveal-on-scroll">
+        <div class="hero-photo-canvas">
+          <img class="main-child-img zoomable-photo" src="images/childhood/together-kids.png" alt="Сергей и Валерия в детстве" onerror="this.src='https://via.placeholder.com/640x640/dfd7cd/581825?text=Наше+детское+фото'">
+
+          <!-- Симметричный пояс надписей с равным отступом от центрального сердечка -->
+          <div class="hero-symmetric-captions">
+            <span class="photo-floating-caption caption-bride">Невеста</span>
+            <div class="captions-heart-gap" aria-hidden="true"></div>
+            <span class="photo-floating-caption caption-groom">Жених</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Индикатор скролла (круг со стрелкой вниз) -->
+      <a href="#message" class="scroll-cue-btn reveal-on-scroll" aria-label="Перейти к приглашению">
+        <svg class="scroll-cue-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- =================================================================
+       ЭКРАН 2: ПРИГЛАШЕНИЕ + ФОТО 1 (БЕЗ ПЕРЕКРЫТИЯ ТЕКСТА НА ПК)
+       ================================================================= -->
+  <section class="content-section message-section" id="message">
+    <div class="container message-container">
+
+      <!-- Фото 1: Лера (крупная, строго ровно, вынесена за пределы текста письма) -->
+      <div class="flow-photo-wrap photo-pos-left reveal-on-scroll">
+        <img class="zoomable-photo" src="images/childhood/bride-1.png" alt="Валерия в детстве" onerror="this.src='https://via.placeholder.com/340x420/dfd7cd/581825?text=Лера'">
+      </div>
+
+      <article class="paper-sheet letter-box reveal-on-scroll">
+        <h2 class="block-title">Дорогие наши!</h2>
+        <p class="letter-paragraph">
+          Когда-то мы были просто двумя маленькими людьми в большом мире.
+          Потом выросли, нашли друг в друга, влюбились - и теперь хотим пригласить вас к себе на свадьбу!
+        </p>
+        <p class="letter-paragraph">
+          Мы бесконечно ценим каждого из вас и не представляем этот праздник без ваших улыбок, тёплых объятий и искренней поддержки.
+        </p>
+        <div class="letter-handwritten-closing">Сергей &amp; Валерия</div>
+      </article>
+
+      <!-- Фото 2: Сережа (крупная, строго ровно, вынесена за пределы текста письма) -->
+      <div class="flow-photo-wrap photo-pos-right reveal-on-scroll">
+        <img class="zoomable-photo" src="images/childhood/groom-1.png" alt="Сергей в детстве" onerror="this.src='https://via.placeholder.com/340x420/dfd7cd/581825?text=Сережа'">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =================================================================
+       ЭКРАН 3: МАРШРУТ ПРАЗДНИКА (ГАРАНТИРОВАННОЕ ВЫРАВНИВАНИЕ МАРКЕРОВ)
+       ================================================================= -->
+  <section class="content-section timeline-section" id="timeline">
+    <div class="container">
+      <h2 class="block-title reveal-on-scroll">Маршрут Праздника</h2>
+      <p class="block-subtitle reveal-on-scroll">31 октября 2026 года</p>
+
+      <div class="chronology-spine">
+
+        <!-- ТОЧКА 1: ЗАГС (По желанию) -->
+        <div class="chronology-row reveal-on-scroll">
+          <span class="timeline-bullet node-optional" aria-hidden="true"></span>
+          <article class="paper-sheet chronology-card">
+            <header class="card-meta">
+<!--              <span class="status-pill status-optional">По желанию</span>-->
+              <time class="event-time">13:00 – 14:00</time>
+            </header>
+
+            <h3 class="event-heading">Шипиловский ЗАГС</h3>
+            <p class="event-text">
+              Будем рады тем, кто захочет разделить с нами момент рождения семьи. Присоединяйтесь по желанию.
+            </p>
+            <p class="venue-address">Москва, Шипиловский проезд, д. 27</p>
+
+            <!-- Табы видов карт -->
+            <div class="interactive-map-block" data-map-group="zags">
+              <nav class="map-view-switcher" role="tablist">
+                <button class="switcher-btn active" role="tab" aria-selected="true" data-tab-target="yandex">Яндекс Карты</button>
+                <button class="switcher-btn" role="tab" aria-selected="false" data-tab-target="google">Google Maps</button>
+              </nav>
+
+              <div class="map-pane active" data-map-pane="yandex" role="tabpanel">
+                <div class="embed-viewport">
+                  <iframe src="https://yandex.ru/map-widget/v1/?ll=37.695181%2C55.616884&mode=search&ol=geo&text=55.616884%2C37.695181&z=16" loading="lazy"></iframe>
+                </div>
+              </div>
+
+              <div class="map-pane" data-map-pane="google" role="tabpanel">
+                <div class="embed-viewport">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.8631811569139!2d37.69446397359005!3d55.616943130579074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab3d18bb8dfeb%3A0xd843f694203395bf!2sShipilovskiy%20Dvorets%20Brakosochetaniya!5e0!3m2!1sen!2sru!4v1790507523847!5m2!1sen!2sru" loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ТОЧКА 2: ДОРОГА И ТРАНСФЕР -->
+        <div class="chronology-row reveal-on-scroll">
+          <span class="timeline-bullet bullet-mini node-transit" aria-hidden="true"></span>
+          <article class="paper-sheet chronology-card card-compact">
+            <header class="card-meta">
+              <time class="event-time">14:00 – 15:00</time>
+            </header>
+            <h4 class="event-heading-mini">Прогулка в Царицыно</h4>
+            <p class="event-text">При хорошей погоде погуляем и пофотографируемся в нашем любимом месте</p>
+          </article>
+        </div>
+
+        <!-- Фото 3: Лера в таймлайне (крупный формат с легким поворотом) -->
+        <div class="flow-photo-inline photo-tilt-left reveal-on-scroll">
+          <img class="zoomable-photo" src="images/childhood/bride-2.png" alt="Валерия в детстве" onerror="this.src='https://via.placeholder.com/320x360/dfd7cd/581825?text=Лера'">
+        </div>
+
+        <!-- ТОЧКА 3: РУССКАЯ СКАЗКА (Главная точка встречи) -->
+        <div class="chronology-row reveal-on-scroll">
+          <span class="timeline-bullet bullet-major node-primary" aria-hidden="true"></span>
+          <article class="paper-sheet chronology-card">
+            <header class="card-meta">
+              <span class="status-pill status-primary">Главная точка встречи</span>
+              <time class="event-time highlight-time">16:00</time>
+            </header>
+
+            <h3 class="event-heading">Банкетный зал «Русская Сказка»</h3>
+            <p class="event-text">
+              Здесь встречаемся все вместе. Впереди тёплые объятия, поздравления и наш праздничный вечер.
+            </p>
+            <p class="venue-address">МО, Ленинский г.о., пос. Володарского, Центральная ул., вл. 21</p>
+
+            <!-- Табы видов карт -->
+            <div class="interactive-map-block" data-map-group="restaurant">
+              <nav class="map-view-switcher" role="tablist">
+                <button class="switcher-btn active" role="tab" aria-selected="true" data-tab-target="yandex">Яндекс Карты</button>
+                <button class="switcher-btn" role="tab" aria-selected="false" data-tab-target="google">Google Maps</button>
+              </nav>
+
+              <div class="map-pane active" data-map-pane="yandex" role="tabpanel">
+                <div class="embed-viewport">
+                  <iframe src="https://yandex.ru/map-widget/v1/?ll=37.873372%2C55.547480&mode=search&ol=geo&text=55.547480%2C37.873372&z=16" loading="lazy"></iframe>
+                </div>
+              </div>
+
+              <div class="map-pane" data-map-pane="google" role="tabpanel">
+                <div class="embed-viewport">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2257.1324034398904!2d37.873372!3d55.54748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTXCsDMyJzUwLjkiTiAzN8KwNTInMjQuMSJF!5e0!3m2!1sen!2sru!4v1790507565907!5m2!1sen!2sru" loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Фото 4: Сережа в таймлайне (крупный формат с легким поворотом) -->
+        <div class="flow-photo-inline photo-tilt-right reveal-on-scroll">
+          <img class="zoomable-photo" src="images/childhood/groom-2.png" alt="Сергей в детстве" onerror="this.src='https://via.placeholder.com/320x360/dfd7cd/581825?text=Сережа'">
+        </div>
+
+        <!-- ТОЧКА 4: НАЧАЛО БАНКЕТА -->
+        <div class="chronology-row reveal-on-scroll">
+          <span class="timeline-bullet" aria-hidden="true"></span>
+          <article class="paper-sheet chronology-card card-compact">
+            <header class="card-meta">
+              <time class="event-time">16:30</time>
+            </header>
+            <h4 class="event-heading-mini">Начало банкета</h4>
+            <p class="event-text">Вкусный ужин, поздравления, танцы и праздничная программа.</p>
+          </article>
+        </div>
+
+        <!-- ТОЧКА 5: ЗАВЕРШЕНИЕ ВЕЧЕРА -->
+        <div class="chronology-row reveal-on-scroll">
+          <span class="timeline-bullet node-finish" aria-hidden="true"></span>
+          <article class="paper-sheet chronology-card card-compact">
+            <header class="card-meta">
+              <time class="event-time">23:00</time>
+            </header>
+            <h4 class="event-heading-mini">Завершение вечера</h4>
+            <p class="event-text">Финал праздничной программы, прощальные объятия и вызов такси.</p>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       ЭКРАН 4: ДРЕСС-КОД (СНАЧАЛА ФОТО ПАЛИТРЫ, ЗАТЕМ ЦВЕТА)
+       ================================================================= -->
+  <section class="content-section dresscode-section" id="dresscode">
+    <div class="container">
+      <h2 class="block-title reveal-on-scroll">Дресс-код</h2>
+      <p class="block-subtitle reveal-on-scroll">Цветовая гамма торжества</p>
+
+      <!-- 1. Фотография палитры -->
+      <div class="palette-showcase reveal-on-scroll">
+        <img class="palette-clean-img zoomable-photo" src="images/dresscode/palette.png" alt="Палитра дресс-кода" onerror="this.src='https://via.placeholder.com/860x480/dfd7cd/581825?text=Фото+палитры+дресс-кода'">
+      </div>
+
+      <!-- 2. Сэмплы цветов -->
+      <div class="swatches-interactive-grid reveal-on-scroll">
+        <!-- Бордовый -->
+        <div class="swatch-square-card" tabindex="0">
+          <div class="swatch-color-box swatch-bordeaux"></div>
+          <h3 class="swatch-title-ru">Бордовый</h3>
+          <div class="swatch-detail-pop">Глубокий винный оттенок, цвет спелой черешни, граната и бархата.</div>
+        </div>
+
+        <!-- Бежевый -->
+        <div class="swatch-square-card" tabindex="0">
+          <div class="swatch-color-box swatch-beige"></div>
+          <h3 class="swatch-title-ru">Бежевый</h3>
+          <div class="swatch-detail-pop">Мягкий кремовый, благородный песочный нюд, оттенок шампанского.</div>
+        </div>
+
+        <!-- Мягкий Серый -->
+        <div class="swatch-square-card" tabindex="0">
+          <div class="swatch-color-box swatch-heather"></div>
+          <h3 class="swatch-title-ru">Серый</h3>
+          <div class="swatch-detail-pop">Сдержанный пепельный, мягкий костюмный меланж и дымчатый оттенок.</div>
+        </div>
+
+        <!-- Лесной зеленый -->
+        <div class="swatch-square-card" tabindex="0">
+          <div class="swatch-color-box swatch-forest"></div>
+          <h3 class="swatch-title-ru">Темно-зеленый</h3>
+          <div class="swatch-detail-pop">Богатый природный изумруд, глубокий оттенок хвои и влажного лесного мха.</div>
+        </div>
+
+        <!-- Эспрессо -->
+        <div class="swatch-square-card" tabindex="0">
+          <div class="swatch-color-box swatch-espresso"></div>
+          <h3 class="swatch-title-ru">Эспрессо</h3>
+          <div class="swatch-detail-pop">Коричневый: тёплый горький шоколад, цвет обжаренного кофе и жжёный каштан.</div>
+        </div>
+      </div>
+
+      <!-- Финальная пара детских фото перед анкетой (с легким поворотом) -->
+      <div class="flow-photo-duo reveal-on-scroll">
+        <div class="flow-duo-item photo-tilt-left">
+          <img class="zoomable-photo" src="images/childhood/bride-3.png" alt="Валерия в детстве" onerror="this.src='https://via.placeholder.com/320x360/dfd7cd/581825?text=Лера'">
+        </div>
+        <div class="flow-duo-item photo-tilt-right">
+          <img class="zoomable-photo" src="images/childhood/groom-3.png" alt="Сергей в детстве" onerror="this.src='https://via.placeholder.com/320x360/dfd7cd/581825?text=Сережа'">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =================================================================
+       ЭКРАН 5: RSVP (АКЦЕНТНАЯ КАРТОЧКА С ДЕДЛАЙНОМ ДО 4 ОКТЯБРЯ)
+       ================================================================= -->
+  <section class="content-section rsvp-section" id="rsvp">
+    <div class="container">
+      <div class="paper-sheet rsvp-box-card reveal-on-scroll">
+        <div class="sealing-wax" aria-hidden="true">С♥️В</div>
+        <h2 class="block-title">Подтверждение присутствия</h2>
+        <p class="rsvp-intro">
+          Пожалуйста, ответьте на вопросы небольшой анкеты, чтобы мы могли с комфортом организовать для вас трансфер, банкет и рассадку.
+        </p>
+
+        <!-- Прямая безопасная кнопка перехода на Яндекс Форму -->
+        <div class="rsvp-action-wrap">
+          <a href="https://forms.yandex.ru/u/6ab926eb1f1eb522dd6e0d97" target="_blank" rel="noopener noreferrer" class="rsvp-btn-action">
+            <span>Заполнить анкету гостя</span>
+            <svg class="rsvp-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="rsvp-deadline-text">Просим ответить до <strong>4 октября 2026 года</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ С МОНОГРАММОЙ -->
+  <footer class="page-footer">
+    <div class="container">
+      <p class="footer-calligraphy">Сергей &amp; Валерия</p>
+      <div class="footer-monogram">С♥️В</div>
+      <p class="footer-calendar">31.10.2026</p>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО LIGHTBOX (ПОЛНОЭКРАННЫЙ ПРОСМОТР) -->
+  <div id="image-lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Просмотр фотографии">
+    <button class="lightbox-close-btn" id="lightbox-close" aria-label="Закрыть просмотр">&times;</button>
+    <div class="lightbox-content-box">
+      <img class="lightbox-target-img" id="lightbox-img" src="" alt="Увеличенная фотография">
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
