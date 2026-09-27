@@ -1,0 +1,1024 @@
+/* ==========================================================================
+   1. ДИЗАЙН-ТОКЕНЫ, ПАЛИТРА И СБРОС СТИЛЕЙ
+   ========================================================================== */
+:root {
+  /* Базовые цвета фона и текста */
+  --bg-fallback: #f5f0e8;
+  --text-main: #2d2621;
+  --text-muted: #6d6259;
+  --accent-gold: #b38b59;
+  --accent-gold-light: rgba(179, 139, 89, 0.22);
+
+  /* Палитра торжества */
+  --color-bordeaux: #581825;
+  --color-bordeaux-hover: #42101a;
+  --color-beige: #d8c2aa;
+  --color-heather: #8b8c89;
+  --color-forest: #233e2e;
+  --color-espresso: #3a2720;
+
+  /* Шрифты (исключительно легкие начертания, без Bold) */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  /* Тени полиграфии */
+  --shadow-photo: 0 12px 30px rgba(45, 38, 33, 0.12), 0 3px 8px rgba(45, 38, 33, 0.05);
+  --shadow-sheet: 0 6px 24px rgba(45, 38, 33, 0.05);
+  --shadow-wax: 0 6px 18px rgba(88, 24, 37, 0.28);
+  --shadow-btn: 0 6px 20px rgba(88, 24, 37, 0.25);
+
+  --transition-gentle: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Бесшовный фон: крупный шаг для выразительной фактуры бумаги */
+body {
+  background-color: var(--bg-fallback);
+  background-image: url('../images/white-grey-scratone.png');
+  background-repeat: repeat;
+  background-size: 185px 185px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.65;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 90%;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.content-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.block-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.block-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   2. СКРОЛЛ-АНИМАЦИИ (FADE-IN-UP)
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   3. ЭКРАН 1: HERO, СИММЕТРИЧНЫЕ ТИТРЫ И СТРЕЛКА СКРОЛЛА
+   ========================================================================== */
+.hero-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-calligraphy-wrap {
+  margin-bottom: 4px;
+}
+
+.hero-wedding-text {
+  font-family: var(--font-script);
+  font-size: 7.6rem;
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--color-bordeaux);
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.hero-subline {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.hero-names {
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.hero-date-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 14px 0 28px;
+}
+
+.date-line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--accent-gold);
+}
+
+.date-val {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  color: var(--accent-gold);
+}
+
+/* Секундный таймер */
+.timer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+}
+
+.timer-digits {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-bordeaux);
+  line-height: 1;
+}
+
+.timer-tag {
+  font-size: 0.72rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+.timer-del {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  margin-top: -12px;
+}
+
+/* Главное детское фото: увеличено, прозрачный альфа-канал */
+.hero-photo-stage {
+  width: 100%;
+  max-width: 520px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-photo-canvas {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.main-child-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: transparent !important;
+  filter: drop-shadow(0 10px 24px rgba(45, 38, 33, 0.15));
+  cursor: pointer;
+}
+
+/* Симметричный верхний пояс титров (строго в верхних 15–20% кадра) */
+.hero-symmetric-captions {
+  position: absolute;
+  top: 14%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Точное окно под нарисованное сердечко: конец слова "Невеста" и начало слова "Жених" равноудалены на 45px от центра */
+.captions-heart-gap {
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.photo-floating-caption {
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--color-bordeaux);
+  line-height: 1;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.95),
+              -2px -2px 10px rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
+}
+
+.caption-bride {
+  position: relative;
+  left: -34px; /* Сдвигает слово влево. Можешь регулировать: -15px, -20px, -30px */
+  transform: rotate(-5deg);
+  text-align: right;
+}
+
+.caption-groom {
+  transform: rotate(5deg);
+  text-align: left;
+}
+
+/* Индикатор скролла (круг со стрелкой) */
+.scroll-cue-btn {
+  margin-top: 40px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-gold);
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bordeaux);
+  text-decoration: none;
+  transition: var(--transition-gentle);
+  animation: gentlePulse 2.4s infinite ease-in-out;
+}
+
+.scroll-cue-btn:hover {
+  background: var(--color-bordeaux);
+  color: #ffffff;
+  border-color: var(--color-bordeaux);
+}
+
+.scroll-cue-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ==========================================================================
+   4. ДЕТСКИЕ ФОТО: КРУПНЫЕ, БЕЗ РАМОК, БЕЗ ПЕРЕКРЫТИЯ ТЕКСТА НА ПК
+   ========================================================================== */
+.message-container {
+  position: relative;
+}
+
+.zoomable-photo {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.zoomable-photo:hover {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+
+/* Фотографии вокруг письма на ПК: вынесены наружу, касаются подложки всего на 15px */
+.flow-photo-wrap {
+  position: absolute;
+  width: 250px;
+  z-index: 3;
+}
+
+.flow-photo-wrap img,
+.flow-photo-inline img,
+.flow-duo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none !important;
+  border-radius: 4px;
+  box-shadow: var(--shadow-photo);
+  background: transparent !important;
+}
+
+/* Точный расчет для ПК: ширина карточки 600px в контейнере 860px.
+   Отступ карточки от края контейнера = 130px.
+   При left: -75px правый край фото (250px) находится на X = 175px.
+   Текст письма начинается на X = 130 + 44 = 174px.
+   Сдвигаем фото левее: на -95px. Правый край фото окажется на X = 155px.
+   Фото касается края бумаги (130px) на 25px, а до текста остается безопасный буфер в 20px! */
+.photo-pos-left {
+  top: -20px;
+  left: -95px;
+}
+
+.photo-pos-right {
+  bottom: -30px;
+  right: -95px;
+}
+
+/* Фотографии в таймлайне (крупные, с легким поворотом) */
+.flow-photo-inline {
+  width: 280px;
+  margin: 12px 0 22px;
+  position: relative;
+  z-index: 3;
+}
+
+.photo-tilt-left {
+  margin-left: 20px;
+  transform: rotate(-2.5deg);
+}
+
+.photo-tilt-right {
+  margin-left: auto;
+  margin-right: 20px;
+  transform: rotate(2.5deg);
+}
+
+/* Финальная пара в дресс-коде (с легким поворотом) */
+.flow-photo-duo {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.flow-duo-item {
+  width: 260px;
+}
+
+/* ==========================================================================
+   5. КАРТОЧКА ПИСЬМА (SECTION 2)
+   ========================================================================== */
+.paper-sheet {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid var(--accent-gold-light);
+  box-shadow: var(--shadow-sheet);
+  border-radius: 4px;
+  padding: 48px 44px;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-box {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.letter-paragraph {
+  font-size: 1.12rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #3b332e;
+  margin-bottom: 18px;
+}
+
+.letter-handwritten-closing {
+  font-family: var(--font-script);
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: var(--color-bordeaux);
+  margin-top: 24px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   6. ТАЙМЛАЙН: МАТЕМАТИЧЕСКИ ВЫВЕРЕННАЯ ОСЬ И ЦЕНТРОВКА МАРКЕРОВ (SECTION 3)
+   ========================================================================== */
+.chronology-spine {
+  position: relative;
+  max-width: 740px;
+  margin: 0 auto;
+  padding-left: 0; /* Контейнер начинается строго с 0 */
+}
+
+/* Непрерывная вертикальная пунктирная линия строго по оси X = 16px */
+.chronology-spine::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 16px;
+  width: 0;
+  border-left: 2px dashed var(--accent-gold);
+  transform: translateX(-50%); /* Центр линии толщиной 2px ровно на отметке 16px */
+  z-index: 1;
+}
+
+.chronology-row {
+  position: relative;
+  padding-left: 44px; /* Отступ перенесен внутрь строки, левый край строки на X = 0 */
+  margin-bottom: 40px;
+}
+
+.chronology-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Маркеры времени: центр строго на координате X = 16px */
+.timeline-bullet {
+  position: absolute;
+  left: 16px;
+  top: 28px;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-bordeaux);
+  border: 4px solid var(--bg-fallback);
+  box-shadow: 0 0 0 1px var(--accent-gold);
+  z-index: 4;
+}
+
+.bullet-mini {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-gold);
+}
+
+.bullet-major {
+  width: 26px;
+  height: 26px;
+  background: var(--color-forest);
+}
+
+.chronology-card {
+  padding: 28px 30px;
+}
+
+.card-compact {
+  padding: 18px 26px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-optional {
+  background: #ebe4d8;
+  color: var(--text-main);
+  border: 1px solid var(--accent-gold);
+}
+
+.status-primary {
+  background: var(--color-forest);
+  color: #ffffff;
+}
+
+.event-time {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-bordeaux);
+}
+
+.highlight-time {
+  color: var(--color-forest);
+}
+
+.event-heading {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.event-heading-mini {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.event-text {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.venue-address {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+/* Табы карт */
+.interactive-map-block {
+  margin-top: 14px;
+}
+
+.map-view-switcher {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.switcher-btn {
+  background: #ede7dd;
+  border: 1px solid #d8cdbe;
+  padding: 8px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--text-main);
+  transition: var(--transition-gentle);
+}
+
+.switcher-btn:hover {
+  background: #e2dacd;
+}
+
+.switcher-btn.active {
+  background: var(--color-espresso);
+  color: #ffffff;
+  border-color: var(--color-espresso);
+}
+
+.map-pane {
+  display: none;
+}
+
+.map-pane.active {
+  display: block;
+  animation: fadeInPane 0.3s ease;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.embed-viewport {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.embed-viewport iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   7. ДРЕСС-КОД: СНАЧАЛА ФОТО ПАЛИТРЫ, ЗАТЕМ ЦВЕТА (SECTION 4)
+   ========================================================================= */
+.palette-showcase {
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.palette-clean-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: var(--shadow-photo);
+  background: transparent !important;
+}
+
+.swatches-interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.swatch-square-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--accent-gold-light);
+  border-radius: 6px;
+  padding: 20px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-gentle);
+  box-shadow: var(--shadow-sheet);
+  outline: none;
+}
+
+.swatch-square-card:hover, .swatch-square-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 24px rgba(45, 38, 33, 0.1);
+}
+
+.swatch-color-box {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.swatch-bordeaux { background-color: var(--color-bordeaux); }
+.swatch-beige { background-color: var(--color-beige); }
+.swatch-heather { background-color: var(--color-heather); }
+.swatch-forest { background-color: var(--color-forest); }
+.swatch-espresso { background-color: var(--color-espresso); }
+
+.swatch-title-ru {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.swatch-detail-pop {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+
+.swatch-square-card.active .swatch-detail-pop {
+  max-height: 90px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   8. RSVP: АКЦЕНТНАЯ КАРТОЧКА С КНОПКОЙ ПЕРЕХОДА (SECTION 5)
+   ========================================================================== */
+.rsvp-box-card {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 60px 40px 44px;
+}
+
+.sealing-wax {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--color-bordeaux);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-wax);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+}
+
+.rsvp-intro {
+  font-size: 1.08rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto 30px;
+}
+
+.rsvp-action-wrap {
+  margin-bottom: 22px;
+}
+
+.rsvp-btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--color-bordeaux);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 16px 36px;
+  border-radius: 30px;
+  box-shadow: var(--shadow-btn);
+  transition: var(--transition-gentle);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rsvp-btn-action:hover {
+  background: var(--color-bordeaux-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(88, 24, 37, 0.35);
+}
+
+.rsvp-btn-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.rsvp-btn-action:hover .rsvp-btn-icon {
+  transform: translate(2px, -2px);
+}
+
+.rsvp-deadline-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   9. ПОДВАЛ
+   ========================================================================== */
+.page-footer {
+  text-align: center;
+  padding: 44px 0;
+  border-top: 1px solid var(--accent-gold-light);
+  color: var(--text-muted);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-calligraphy {
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--color-bordeaux);
+  line-height: 1;
+}
+
+.footer-monogram {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--accent-gold);
+  letter-spacing: 2px;
+  margin: 8px 0 4px;
+}
+
+.footer-calendar {
+  font-size: 0.82rem;
+  letter-spacing: 3px;
+}
+
+/* ==========================================================================
+   10. МОДАЛЬНОЕ ОКНО LIGHTBOX (ПОЛНОЭКРАННЫЙ ПРОСМОТР)
+   ========================================================================== */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 24, 21, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content-box {
+  max-width: 90vw;
+  max-height: 88vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-target-img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lightbox-modal.is-open .lightbox-target-img {
+  transform: scale(1);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1010;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 8px;
+}
+
+.lightbox-close-btn:hover {
+  color: var(--accent-gold);
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   11. АДАПТИВНОСТЬ: СМАРТФОНЫ (ВКЛЮЧАЯ IPHONE 16 PRO MAX)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-wedding-text {
+    font-size: 5.4rem;
+  }
+
+  .hero-names {
+    font-size: 2.7rem;
+  }
+
+  .timer-digits {
+    font-size: 2rem;
+  }
+
+  .timer-del {
+    font-size: 1.6rem;
+  }
+
+  .timer-unit {
+    min-width: 44px;
+  }
+
+  .hero-photo-stage {
+    max-width: 340px;
+  }
+
+  .hero-symmetric-captions {
+    top: 10%;
+  }
+
+  .captions-heart-gap {
+    width: 60px;
+  }
+
+  .photo-floating-caption {
+    font-size: 2.3rem;
+  }
+
+  /* На смартфонах фото у письма выстраиваются в вертикальный поток без абсолютного позиционирования */
+  .flow-photo-wrap {
+    position: relative;
+    width: 240px;
+    margin: 0 auto;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .photo-pos-left {
+    top: 0;
+    margin-bottom: 20px;
+  }
+
+  .photo-pos-right {
+    bottom: 0;
+    margin-top: 24px;
+  }
+
+  .flow-photo-inline {
+    width: 220px;
+  }
+
+  .flow-duo-item {
+    width: 160px;
+  }
+
+  .block-title {
+    font-size: 2.2rem;
+  }
+
+  .paper-sheet {
+    padding: 32px 20px;
+  }
+
+  .chronology-row {
+    padding-left: 36px;
+  }
+
+  .chronology-spine::before {
+    left: 14px;
+  }
+
+  .timeline-bullet {
+    left: 14px;
+  }
+
+  .chronology-card {
+    padding: 20px 16px;
+  }
+
+  .swatches-interactive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .swatch-color-box {
+    width: 80px;
+    height: 80px;
+  }
+
+  .rsvp-box-card {
+    padding: 50px 20px 36px;
+  }
+
+  .rsvp-btn-action {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+
+  .lightbox-close-btn {
+    top: 14px;
+    right: 18px;
+    font-size: 2.4rem;
+  }
+}
