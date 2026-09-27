@@ -281,6 +281,8 @@ body {
 }
 
 .caption-groom {
+  position: relative;
+  left: 15px; /* Сдвигает слово вправо. Значение можно регулировать: 15px, 20px, 30px */
   transform: rotate(5deg);
   text-align: left;
 }
